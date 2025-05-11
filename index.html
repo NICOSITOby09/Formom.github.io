@@ -1,0 +1,159 @@
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Regalo para Mamá 💖</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f9d5e5, #fcb69f);
+    overflow: hidden;
+    color: #4a2c3b;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 350px;
+    margin: auto;
+    height: 600px;
+  }
+
+  .card {
+    background: #fff0f6;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(255 153 169 / 0.3);
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 340px;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    cursor: default;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 0.2em;
+    color: #d8345f;
+    text-shadow: 1px 1px 4px rgba(216,52,95,0.6);
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.8em;
+    padding: 0 10px;
+    color: #622a3e;
+  }
+
+  .heart {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 50% 40%, #ff4b7b 10%, #a81c35 70%);
+    clip-path: polygon(50% 90%, 0 40%, 15% 0, 50% 20%, 85% 0, 100% 40%);
+    animation: beat 1.5s infinite;
+    transform-origin: center bottom;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  .signature {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.3rem;
+    color: #ba2561;
+    margin-top: 2em;
+    user-select: text;
+  }
+
+  /* Floating pastel confetti */
+  .confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fcb69f;
+    opacity: 0.85;
+    border-radius: 3px;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .confetti-piece:nth-child(2n) { background-color: #f9d5e5; }
+  .confetti-piece:nth-child(3n) { background-color: #feaea7; }
+  .confetti-piece:nth-child(4n) { background-color: #f17d8e; }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(600px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="card" role="main" aria-label="Tarjeta de regalo para mamá">
+    <h1>For my mom</h1>
+    <p>Gracias por ser mi luz y mi guía cada día.<br> Tu amor es el regalo más precioso que tengo.<br> Te quiero con todo mi corazón.</p>
+    <div class="signature">Con mucho amor, tu hijo/a</div>
+    <div class="heart" aria-hidden="true"></div>
+  </div>
+
+  <div class="confetti" aria-hidden="true"></div>
+
+<script>
+  // Generate confetti pieces dynamically
+  const confettiContainer = document.querySelector('.confetti');
+  const confettiCount = 40;
+
+  function randomRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti-piece');
+    confetti.style.left = `${randomRange(0, 100)}vw`;
+    confetti.style.width = `${randomRange(6, 12)}px`;
+    confetti.style.height = confetti.style.width;
+    confetti.style.animationDuration = `${randomRange(5, 10)}s`;
+    confetti.style.animationDelay = `${randomRange(0, 10)}s`;
+    confetti.style.transformOrigin = `${randomRange(25, 75)}% ${randomRange(25, 75)}%`;
+    confettiContainer.appendChild(confetti);
+  }
+</script>
+</body>
+</html>
+```
